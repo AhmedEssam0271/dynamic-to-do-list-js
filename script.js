@@ -4,7 +4,7 @@ const taskInput = document.getElementById("task-input");
 const taskList = document.getElementById("task-list");
 
 function addTask() {
-  let taskText = taskInput.value;
+  let taskText = taskInput.value.trim();
   if (taskText == "") {
     alert("Please enter a task.");
   }
@@ -20,12 +20,12 @@ function addTask() {
     li.appendChild(removeButton);
     taskList.appendChild(li);
     taskList.value = "";
-    addButton.addEventListener("click", addTask());
-    taskInput.addEventListener("keypress", (validate) => {
-      if (e.key === "Enter") {
-        addTask();
-      }
-    });
   }
 }
 document.addEventListener("DOMContentLoaded", addTask);
+addButton.addEventListener("click", addTask());
+taskInput.addEventListener("keypress", (validate) => {
+  if (e.key === "Enter") {
+    addTask();
+  }
+});
