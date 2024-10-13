@@ -8,7 +8,7 @@ function addTask() {
   if (taskText == "") {
     alert("Please enter a task.");
   }
-  if (taskText != "") {
+  if (taskText !== "") {
     const li = document.createElement("li");
     const node = document.createTextNode(taskText);
     li.appendChild(node);
@@ -16,7 +16,7 @@ function addTask() {
     const removeButton = document
       .createElement("button")
       .classList.add("remove-btn");
-    removeButton.onclick(taskList.remove(li));
+    removeButton.onclick(taskList.Remove(li));
     li.appendChild(removeButton);
     taskList.appendChild(li);
     taskList.value = "";
